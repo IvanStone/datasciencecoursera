@@ -15,9 +15,9 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     filenames <- formatfilename(id)
     data <- readcsvfiles(directory,filenames)
     col <- getcolumnindex(pollutant,data)
-    data <- data[complete.cases(data[,col]),]
+    outdata <- data[complete.cases(data[,col]),]
     
-    round(mean(data[,col]), digits = 3)
+    round(mean(outdata[,col]), digits = 3)
 }
 
 formatfilename <- function(id, type="csv"){
